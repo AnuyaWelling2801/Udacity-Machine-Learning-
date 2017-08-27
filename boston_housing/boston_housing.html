@@ -13298,7 +13298,7 @@ Think about the pros and cons of adding more training points based on if the tra
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>I am choosing the graph with maximum depth=6.
-As more points are added to the training curve, the score of the curve increases at first but with evenutally plateaus. Similarly, for the testing curve, the score increases at first and eventually the curve runs parallel to the training curve.
+As more points are added to the training curve, the score of the curve decreases at first but with evenutally plateaus. Similarly, for the testing curve, the score increases at first and eventually the curve runs parallel to the training curve.
 So adding more training points helps to a certain extent and then it just becomes computationally intensive.</p>
 
 </div>
@@ -13784,8 +13784,8 @@ iRhKeiIiEjGU9EREJGIo6YmISMRQ0hMRkYjx/wELTfBqlibofAAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>When the model is trained with a maximum depth of 1, the model suffers from high bias. This is observed because the training and testing scores are both low. Hence its a sign of underfitting.
-When the model is trained with a maximum depth of 10, the model suffers from high variance. This is observed because the training score is high, which means the data fits the training set perfectly, but the validation score is low as the data is customized for the training set and does not suit the testing set. Hence its a sign of underfitting.</p>
+<p>When the model is trained with a maximum depth of 1, the model suffers from high bias. This is observed because the training and testing scores are both low. Hence its a sign of underfitting. This a low R^2 value for both training and testing sets
+When the model is trained with a maximum depth of 10, the model suffers from high variance. This is observed because the training score is high, which means the data fits the training set perfectly, but the validation score is low as the data is customized for the training set and does not suit the testing set. Hence its a sign of overfitting. Hence a high R^2 value for the training set but a low R^2 value for the testing set</p>
 
 </div>
 </div>
@@ -13809,7 +13809,7 @@ When the model is trained with a maximum depth of 10, the model suffers from hig
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>It seems that the model best generalizes for unseen data at maximium depth of 2 or 3. At the depth of 2 or 3, the training as well as validation scores are the closest to each other. If we increase the depth, the data starts overfitting and our model starts being over complicated.</p>
+<p>It seems that the model best generalizes for unseen data at maximium depth of 3. At the depth of 3, the training as well as validation scores are the closest to each other. If we increase the depth, the data starts overfitting and our model starts being over complicated.</p>
 
 </div>
 </div>
@@ -13844,7 +13844,7 @@ When the model is trained with a maximum depth of 10, the model suffers from hig
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The grid serach technique is a brute force technique to automate tuning parameters to get the best performance.</p>
+<p>The grid serach technique is a brute force technique to automate tuning parameters to get the best performance. By default, the grid search will only use one thread. By setting the n_jobs argument in the GridSearchCV constructor to -1, the process will use all cores on your machine. The GridSearchCV process will then construct and evaluate one model for each combination of parameters.</p>
 
 </div>
 </div>
@@ -14109,7 +14109,7 @@ Predicted selling price for Client 3&#39;s home: $913,500.00
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>So, for client 3 at RM=8, LSTAT=3% and PTRATIO=12-to-1 if the maximum priced house is at $1,024,800.00, it seems pretty close to the predicted price.
 Similarly for client 2 - does not have RM numbers that high, has high poverty ratio and not the best schools. So ideally the score should be close to the minimum =  $105,000.00. but its not. Hence not resonable.
-Client 1 is midway between client 2 and 3 and so are the prices. Hence it is reasonable.</p>
+Client 1 is midway between client 2 and 3 and so are the prices close to the median of $438,900.00 . Hence it is reasonable.</p>
 
 </div>
 </div>
